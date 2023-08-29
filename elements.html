@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Quantum</title>
+</head>
+
+<body>
+    <!-- Overlay for aside -->
+    <div id="aside-overlay"></div>
+    <nav id="navBar" class="container-fluid p-lg-3 p-1">
+        <div class="d-flex justify-content-between align-items-center container-lg container-fluid">
+            <h1 class="header font-primary m-0 font-primary fw-bold col-4 col-lg-auto">Quantum<span
+                    class="text-primary">.</span></h1>
+            <ul class="navbar list-unstyled mb-0 p-2 d-lg-flex d-none">
+                <li class="nav-items me-4"><a href="index.html"
+                        class="text-secondary align-items-center font-primary text-decoration-none nav-text-fs">HOME</a>
+                </li>
+                <li class="nav-items me-4"><a href="features.html"
+                        class="text-secondary nav-text-fs font-primary text-decoration-none">FEATURES</a>
+                </li>
+                <li class="nav-items me-4"><a href="pricing.html"
+                        class="text-secondary nav-text-fs font-primary text-decoration-none">PRICING</a>
+                </li>
+                <li class="nav-items me-4 position-relative" id="services_btn"><a href="services.html"
+                        class="text-secondary font-primary nav-text-fs text-decoration-none">SERVICES
+                        <i class="fa fa-caret-down"></i></a>
+                    <ul
+                        class="dropdown fade-up-anim dropdown-1 d-none bg-white py-3 shadow list-unstyled font-primary text-dark position-absolute">
+                        <li class="dropdown-items transition">
+                            <a href="elements.html" id="element-link">Elements</a>
+                        </li>
+                        <li class="dropdown-items transition">
+                            <a href="#">HTML</a>
+                        </li>
+                        <li class="dropdown-items transition">
+                            <a href="#">CSS</a>
+                        </li>
+                        <li class="dropdown-items transition position-relative" id="web_btn">
+                            <a href="#">Web <span><i class="fa fa-caret-right"></i></span></a>
+                            <ul class="dropdown dropdown-2 d-none position-absolute py-3 bg-white shadow list-unstyled">
+                                <li class="dropdown-items transition"><a href="#">React</a></li>
+                                <li class="dropdown-items transition"><a href="#">Angular</a></li>
+                                <li class="dropdown-items transition"><a href="#">Vue</a></li>
+                            </ul>
+                        </li>
+                        <li class=" dropdown-items transition">
+                            <a href="#">Advanced</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class=" nav-items me-4"><a href="about.html"
+                        class="text-secondary font-primary nav-text-fs text-decoration-none">ABOUT</a>
+                </li>
+                <li class="nav-items me-4"><a href="contact.html"
+                        class="text-secondary nav-text-fs font-primary text-decoration-none">CONTACT</a>
+                </li>
+            </ul>
+            <div class="nav-icons col-7 col-lg-auto text-lg-end text-end">
+                <a href="#" id="btn-search"><i class="fa fa-search text-primary me-4"></i></a>
+                <a href="#"><i class="fa fa-twitter text-primary me-4"></i></a>
+                <a href="#"><i class="fa fa-facebook text-primary me-4"></i></a>
+            </div>
+            <div class="d-block d-lg-none col-1" onclick="aside_toggle()">
+                <button class="btn btn-hamburger"><i class="fa fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div class="search-bar shadow" id="searchBar">
+        <input type="search" class="search-bar-control font-primary ps-2" placeholder="Enter keyword to search">
+        <div>
+            <a href="#" class="me-2"><button>
+                    <i class="fa fa-search"></i>
+                </button></a>
+            <a href="#" id="close-btn"><button class="fs-5">
+                    <i class="fa fa-close"></i>
+                </button></a>
+        </div>
+    </div>
+
+    <!-- Aside -->
+    <aside class="bg-white py-4 pe-sm-3 shadow" id="aside">
+        <div class="text-end">
+            <button class="btn btn-close-white font-primary" onclick="aside_closeBtn()">X</button>
+        </div>
+        <div class="container-fluid" style="margin-top: 20px;">
+            <ul class="list-unstyled aside-list ps-2 pt-2">
+                <li class="aside-list-items">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="aside-list-items">
+                    <a href="features.html">Features</a>
+                </li>
+                <li class="aside-list-items">
+                    <a href="pricing.html">Pricing</a>
+                </li>
+                <li class="aside-list-items">
+                    <div class="row align-items-center">
+                        <div class="col-8">
+                            <a href="services.html">Services</a>
+                        </div>
+                        <div class="col-4 text-end" id="aside-services-btn" onclick="service_dropdownToggle()">
+                            <button class="text-end">
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <ul class="dropdown dropdown-1 bg-white ps-3 py-2 list-unstyled font-primary" id="dropdown">
+                        <li class="dropdown-items transition">
+                            <a href="elements.html">Elements</a>
+                        </li>
+                        <li class="dropdown-items transition">
+                            <a href="#">HTML</a>
+                        </li>
+                        <li class="dropdown-items transition">
+                            <a href="#">CSS</a>
+                        </li>
+                        <li class="dropdown-items transition position-relative">
+                            <a href="services.html">Web</a>
+                            <div class="text-end d-inline-block position-absolute" id="aside-services-btn"
+                                onclick="web_dropdownToggle()">
+                                <button class="text-end">
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                            </div>
+                            <ul class="dropdown dropdown-2 ps-3 pe-5 bg-white list-unstyled" id="dropdown-2">
+                                <li class="dropdown-items transition"><a href="#">React</a></li>
+                                <li class="dropdown-items transition"><a href="#">Angular</a></li>
+                                <li class="dropdown-items transition"><a href="#">Vue</a></li>
+                                <li class=" dropdown-items transition">
+                                    <a href="#">Advanced</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="aside-list-items">
+                    <a href="about.html">About</a>
+                </li>
+                <li class="aside-list-items">
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+
+    <section class="sec-about sec-services position-relative z-1">
+        <div class="container">
+            <div class="row justify-content-center z-3 m-0">
+                <div class="col-lg-8 z-3">
+                    <p class="text-center subtitle-fs text-primary font-primary mb-2" data-aos="fade-up"
+                        data-aos-duration="700" data-aos-once="true">ELEMENTS</p>
+                    <h1 class="text-tertiary title-fs font-secondary text-center mb-lg-5" data-aos="fade-up"
+                        data-aos-duration="700" data-aos-once="true">Far far away, behind the word
+                        mountains, far from
+                        the
+                        countries.</h1>
+                </div>
+            </div>
+            <div class="row my-5 gx-md-5">
+                <div class="col-lg-6 mb-5">
+                    <h2 class="font-secondary element-headers-fs fw-bold mb-5">Accordion</h2>
+                    <button class="accordion-custom">
+                        <span class="me-2"><i class="fa fa-plus"></i></span>
+                        HOW TO DOWNLOAD AND REGISTER?
+                    </button>
+                    <div class="panel px-4 accordion-body">
+                        <p class="font-primary text-tertiary py-4 ps-2 m-0">Far far away, behind the word mountains, far
+                            from
+                            the
+                            countries Vokalia
+                            and Consonantia,
+                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                            Semantics, a large language ocean.</p>
+                    </div>
+
+                    <button class="accordion-custom">
+                        <span class="me-2"><i class="fa fa-plus"></i></span>
+                        HOW TO CREATE YOUR PAYPAL ACCOUNT?
+                    </button>
+                    <div class="panel px-4 accordion-body">
+                        <p class="font-primary text-tertiary py-4 ps-2 m-0">Far far away, behind the word mountains, far
+                            from
+                            the
+                            countries Vokalia
+                            and Consonantia,
+                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                            Semantics, a large language ocean.</p>
+                    </div>
+
+                    <button class="accordion-custom">
+                        <span class="me-2"><i class="fa fa-plus"></i></span>
+                        HOW TO LINK YOUR PAYPAL AND BANK ACCOUNT
+                    </button>
+                    <div class="panel px-4 accordion-body">
+                        <p class="font-primary text-tertiary py-4 ps-2 m-0">Far far away, behind the word mountains, far
+                            from
+                            the
+                            countries Vokalia
+                            and Consonantia,
+                            there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                            Semantics, a large language ocean.</p>
+                    </div>
+                    <div class="gallery-elem pt-5">
+                        <h2 class="font-secondary element-headers-fs fw-bold mb-4">Gallery</h2>
+                        <div class="row gx-2 gy-0">
+                            <div class="col-4 mb-2">
+                                <a href="images/gal_1.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_1.jpg.webp" alt="pic 1">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="images/gal_2.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_2.jpg.webp" alt="pic 2">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="images/gal_3.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_3.jpg.webp" alt="pic 3">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="images/gal_4.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_4.jpg.webp" alt="pic 4">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="images/gal_5.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_5.jpg.webp" alt="pic 5">
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="images/gal_6.jpg.webp">
+                                    <img class="img-fluid gallery-item" src="images/gal_6.jpg.webp" alt="pic 6">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="element-headers-fs font-secondary fw-bold my-5">Video</h2>
+                    <div class="elem-video-img img-fluid position-relative">
+                        <button onclick="playBtn()">
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div>
+                    <div class="mt-5">
+                        <h2 class="font-secondary element-headers-fs fw-bolder">Check Unordered List</h2>
+                        <ul class="list-unstyled mt-4">
+                            <li class="mb-3">
+                                <span class="me-2 text-primary"><i class="fa fa-check"></i></span>
+                                <span class="font-primary text-tertiary">Far from the countries Vokalia</s>
+                            </li>
+                            <li class="mb-3">
+                                <span class="me-2 text-primary"><i class="fa fa-check"></i></span>
+                                <span class="font-primary text-tertiary">Far far away, behind the word</s>
+                            </li>
+                            <li class="mb-3">
+                                <span class="me-2 text-primary"><i class="fa fa-check"></i></span>
+                                <span class="font-primary text-tertiary">Separated they live in Bookmarksgrove</s>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="font-secondary element-headers-fs fw-bold mb-5">Form</h2>
+                    <form action="#" class="elements-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="fname">First name</label>
+                                <input type="text" class="form-input">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lname">Last name</label>
+                                <input type="text" class="form-input">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-input">
+                                <small class="font-primary emailHelp">We'll never share your email with anyone
+                                    else.
+                                </small>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="message">Message</label>
+                                <textarea class="form-input" cols="30" rows="5"></textarea>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <label for="select" class="d-block">Select</label>
+                                <select name id="select" class="form-input custom-select">
+                                    <option value="">Colorlib</option>
+                                    <option value="">Offers high quality free template</option>
+                                </select>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <div class="custom-checkbox">
+                                    <input type="checkbox" id="myCheckbox">
+                                    <label for="myCheckbox"></label>
+                                </div>
+                                <span class="font-primary ps-2 align-text-bottom">Custom checkbox</span>
+                            </div>
+                            <div class="mt-3">
+                                <input type="submit" value="Submit"
+                                    class="form-submit-btn font-primary elements-form-submit">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="mt-4">
+                        <h2 class="font-secondary text-black element-headers-fs fw-bold mb-4">Social Icons</h2>
+                        <ul class="list-unstyled social-icons-list">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-google"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="testimonial-sec">
+                        <h2 class="element-headers-fs font-secondary fw-bold my-5 text-center">Slider</h2>
+                        <div class="testimonal-slider" id="testimonal-slider">
+                            <div class="slider-col">
+                                <figure class="slider-col-img">
+                                    <img src="images/person_3.jpg.webp" alt="image" class="img-fluid">
+                                </figure>
+                                <h3 class="font-secondary text-black">Lukas Devlin</h3>
+                                <blockquote class="font-primary text-tertiary">“There live the blind texts. Separated
+                                    they live in
+                                    Bookmarksgrove right at
+                                    the coast of the Semantics, a large language ocean.”</blockquote>
+                            </div>
+                            <div class="slider-col">
+                                <figure class="slider-col-img">
+                                    <img src="images/person_2.jpg.webp" alt="image" class="img-fluid">
+                                </figure>
+                                <h3 class="font-secondary text-black">Lukas Devlin</h3>
+                                <blockquote class="font-primary text-tertiary">“Vibrant neon illuminates urban nights,
+                                    laughter and stories weave a mosaic, painting
+                                    the tapestry of existence.”</blockquote>
+                            </div>
+                            <div class="slider-col">
+                                <figure class="slider-col-img">
+                                    <img src="images/person_1.jpg.webp" alt="image" class="img-fluid">
+                                </figure>
+                                <h3 class="font-secondary text-black">Lukas Devlin</h3>
+                                <blockquote class="font-primary text-tertiary">“Flickering neon illuminates the urban
+                                    landscape, where laughter and stories weave together, forming a vibrant mosaic of
+                                    life.”</blockquote>
+                            </div>
+                            <div class="slider-col">
+                                <figure class="slider-col-img">
+                                    <img src="images/person_4.jpg.webp" alt="image" class="img-fluid">
+                                </figure>
+                                <h3 class="font-secondary text-black">Lukas Devlin</h3>
+                                <blockquote class="font-primary text-tertiary">“Vibrant neon illuminates urban nights,
+                                    laughter and stories weave a mosaic, painting
+                                    the tapestry of existence."</blockquote>
+                            </div>
+                        </div>
+                        <div class="dots">
+                            <div class="slider-btn slider-btn-active shadow"></div>
+                            <div class="slider-btn"></div>
+                            <div class="slider-btn"></div>
+                            <div class="slider-btn"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-overlay" id="VideoPlayer">
+            <div class="container">
+                <video controls>
+                    <source src="images/y2mate.is - Ataccama Office Tour-hY1AjdyKUQI-720p-1691933851.mp4"
+                        type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <div class="close-btn-div">
+            <button id="closeBtn" onclick="closeBtn()">
+                <i class="fa fa-close"></i>
+            </button>
+        </div>
+    </section>
+
+    <section class="py-5 mt-5">
+        <div class="row row-cols-2 m-0">
+            <div class="col-5 px-lg-2 px-0 testimonal-col-1 position-relative z-1" data-aos="fade-in"
+                data-aos-duration="800" data-aos-once="true">
+                <div class="testimonal-grid-img z-3"></div>
+            </div>
+            <div class="col-7 bg-primary py-4 testimonal-text-col" data-aos="fade-in" data-aos-duration="800"
+                data-aos-once="true" data-aos-delay="300">
+                <blockquote class="text-white font-primary testimonal-text">“Far far away, behind the word
+                    mountains, far from the
+                    countries Vokalia
+                    and
+                    Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
+                    coast of the Semantics, a large language ocean.”</blockquote>
+                <div class="d-flex">
+                    <div class="p-0 align-items-center" style="margin-right: 20px;">
+                        <img src="images/person_1.jpg.webp" class="rounded-circle img-fluid person-img" alt="image">
+                    </div>
+                    <div class="align-self-end">
+                        <p class="font-primary text-white fw-bold m-0" style="font-size: 14px;">James Wilner</p>
+                        <p class="font-primary"
+                            style="color: rgba(255, 255, 255, 0.5); font-size: 14px; letter-spacing: .5px;">CEO,
+                            Co-Founder
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class=" bg-light py-5">
+        <div class="container">
+            <div class="row mb-5 m-0" style="row-gap: 20px;">
+                <div class="col-lg-2">
+                    <h3 class="font-secondary mb-4 text-tertiary fs-6">Help</h3>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Colorlib</a></li>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h3 class="font-secondary mb-4 text-tertiary fs-6">About</h3>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h3 class="font-secondary mb-4 text-tertiary fs-6">Support</h3>
+                    <ul class="list-unstyled footer-list">
+                        <li><a href="#">Knowledge base</a></li>
+                        <li><a href="#">Forum</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3 class="font-secondary mb-4 text-tertiary fs-6">Subscribe</h3>
+                    <div class="row">
+                        <div class="col-7 px-0">
+                            <input type="email" placeholder="Email address" class="border-end-0 border-1 border-black">
+                        </div>
+                        <div class="col px-0">
+                            <input type="submit" class="btn-submit" data-value="Subscribe">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center font-primary copyright-text">
+                    <p><span class="me-1"><i class="fa fa-copyright"></i></span>Template by Colorlib <i
+                            class="fa fa-heart"></i></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+        </script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
